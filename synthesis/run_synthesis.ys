@@ -1,0 +1,15 @@
+read_verilog rtl/input_register.v
+read_verilog rtl/power_calculator.v
+read_verilog rtl/energy_accumulator.v
+read_verilog rtl/threshold_register.v
+read_verilog rtl/fault_detector.v
+read_verilog rtl/protection_fsm.v
+read_verilog rtl/energyguard_top.v
+
+hierarchy -check -top energyguard_top
+proc
+opt
+check
+synth -top energyguard_top
+stat
+write_verilog synthesis/energyguard_generic.v

@@ -1,0 +1,14 @@
+OpenSTA 3.1.0 2996e37a3a Copyright (c) 2026, Parallax Software, Inc.
+License GPLv3: GNU GPL version 3 <http://gnu.org/licenses/gpl.html>
+
+This is free software, and you are free to change and redistribute it
+under certain conditions; type `show_copying' for details. 
+This program comes with ABSOLUTELY NO WARRANTY; for details type `show_warranty'.
+Usage: OpenSTA/build/sta [-help] [-version] [-no_init] [-no_splash] [-threads count|max] [-exit] cmd_file
+  -help              show help and exit
+  -version           show version and exit
+  -no_init           do not read .sta init file
+  -threads count|max use count threads
+  -no_splash         do not show the license splash at startup
+  -exit              exit after reading cmd_file
+  cmd_file           source cmd_file

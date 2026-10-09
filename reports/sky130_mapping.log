@@ -1,0 +1,1088 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.47+121 (git sha1 98b4affc4, g++ 13.2.0-23ubuntu4 -fPIC -O3)
+
+-- Executing script file `synthesis/run_sky130_mapping.ys' --
+
+1. Executing Liberty frontend: /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+Imported 428 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: rtl/input_register.v
+Parsing Verilog input from `rtl/input_register.v' to AST representation.
+Generating RTLIL representation for module `\input_register'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: rtl/power_calculator.v
+Parsing Verilog input from `rtl/power_calculator.v' to AST representation.
+Generating RTLIL representation for module `\power_calculator'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: rtl/energy_accumulator.v
+Parsing Verilog input from `rtl/energy_accumulator.v' to AST representation.
+Generating RTLIL representation for module `\energy_accumulator'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: rtl/threshold_register.v
+Parsing Verilog input from `rtl/threshold_register.v' to AST representation.
+Generating RTLIL representation for module `\threshold_register'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: rtl/fault_detector.v
+Parsing Verilog input from `rtl/fault_detector.v' to AST representation.
+Generating RTLIL representation for module `\fault_detector'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: rtl/protection_fsm.v
+Parsing Verilog input from `rtl/protection_fsm.v' to AST representation.
+Generating RTLIL representation for module `\protection_fsm'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: rtl/energyguard_top.v
+Parsing Verilog input from `rtl/energyguard_top.v' to AST representation.
+Generating RTLIL representation for module `\energyguard_top'.
+Successfully finished Verilog frontend.
+
+9. Executing HIERARCHY pass (managing design hierarchy).
+
+9.1. Analyzing design hierarchy..
+Top module:  \energyguard_top
+Used module:     \protection_fsm
+Used module:     \fault_detector
+Used module:     \threshold_register
+Used module:     \energy_accumulator
+Used module:     \power_calculator
+Used module:     \input_register
+
+9.2. Analyzing design hierarchy..
+Top module:  \energyguard_top
+Used module:     \protection_fsm
+Used module:     \fault_detector
+Used module:     \threshold_register
+Used module:     \energy_accumulator
+Used module:     \power_calculator
+Used module:     \input_register
+Removed 0 unused modules.
+
+10. Executing SYNTH pass.
+
+10.1. Executing HIERARCHY pass (managing design hierarchy).
+
+10.1.1. Analyzing design hierarchy..
+Top module:  \energyguard_top
+Used module:     \protection_fsm
+Used module:     \fault_detector
+Used module:     \threshold_register
+Used module:     \energy_accumulator
+Used module:     \power_calculator
+Used module:     \input_register
+
+10.1.2. Analyzing design hierarchy..
+Top module:  \energyguard_top
+Used module:     \protection_fsm
+Used module:     \fault_detector
+Used module:     \threshold_register
+Used module:     \energy_accumulator
+Used module:     \power_calculator
+Used module:     \input_register
+Removed 0 unused modules.
+
+10.2. Executing PROC pass (convert processes to netlists).
+
+10.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+10.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/protection_fsm.v:62$16 in module protection_fsm.
+Removed 1 dead cases from process $proc$rtl/protection_fsm.v:29$15 in module protection_fsm.
+Marked 4 switch rules as full_case in process $proc$rtl/protection_fsm.v:29$15 in module protection_fsm.
+Marked 1 switch rules as full_case in process $proc$rtl/fault_detector.v:21$7 in module fault_detector.
+Marked 1 switch rules as full_case in process $proc$rtl/threshold_register.v:19$6 in module threshold_register.
+Marked 1 switch rules as full_case in process $proc$rtl/energy_accumulator.v:13$4 in module energy_accumulator.
+Marked 1 switch rules as full_case in process $proc$rtl/power_calculator.v:15$2 in module power_calculator.
+Marked 1 switch rules as full_case in process $proc$rtl/input_register.v:17$1 in module input_register.
+Removed a total of 1 dead cases.
+
+10.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 12 redundant assignments.
+Promoted 3 assignments to connections.
+
+10.2.4. Executing PROC_INIT pass (extract init attributes).
+
+10.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+10.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+10.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\protection_fsm.$proc$rtl/protection_fsm.v:62$16'.
+     1/3: $1\warning[0:0]
+     2/3: $1\trip[0:0]
+     3/3: $1\fault_active[0:0]
+Creating decoders for process `\protection_fsm.$proc$rtl/protection_fsm.v:29$15'.
+     1/1: $0\state[1:0]
+Creating decoders for process `\fault_detector.$proc$rtl/fault_detector.v:21$7'.
+     1/4: $0\over_power[0:0]
+     2/4: $0\over_current[0:0]
+     3/4: $0\under_voltage[0:0]
+     4/4: $0\over_voltage[0:0]
+Creating decoders for process `\threshold_register.$proc$rtl/threshold_register.v:19$6'.
+     1/4: $0\power_max[23:0]
+     2/4: $0\current_max[11:0]
+     3/4: $0\voltage_min[11:0]
+     4/4: $0\voltage_max[11:0]
+Creating decoders for process `\energy_accumulator.$proc$rtl/energy_accumulator.v:13$4'.
+     1/1: $0\energy_out[31:0]
+Creating decoders for process `\power_calculator.$proc$rtl/power_calculator.v:15$2'.
+     1/1: $0\power_out[23:0]
+Creating decoders for process `\input_register.$proc$rtl/input_register.v:17$1'.
+     1/2: $0\current_reg[11:0]
+     2/2: $0\voltage_reg[11:0]
+
+10.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\protection_fsm.\warning' from process `\protection_fsm.$proc$rtl/protection_fsm.v:62$16'.
+No latch inferred for signal `\protection_fsm.\fault_active' from process `\protection_fsm.$proc$rtl/protection_fsm.v:62$16'.
+No latch inferred for signal `\protection_fsm.\trip' from process `\protection_fsm.$proc$rtl/protection_fsm.v:62$16'.
+
+10.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\protection_fsm.\state' using process `\protection_fsm.$proc$rtl/protection_fsm.v:29$15'.
+  created $dff cell `$procdff$81' with positive edge clock.
+Creating register for signal `\fault_detector.\over_voltage' using process `\fault_detector.$proc$rtl/fault_detector.v:21$7'.
+  created $dff cell `$procdff$82' with positive edge clock.
+Creating register for signal `\fault_detector.\under_voltage' using process `\fault_detector.$proc$rtl/fault_detector.v:21$7'.
+  created $dff cell `$procdff$83' with positive edge clock.
+Creating register for signal `\fault_detector.\over_current' using process `\fault_detector.$proc$rtl/fault_detector.v:21$7'.
+  created $dff cell `$procdff$84' with positive edge clock.
+Creating register for signal `\fault_detector.\over_power' using process `\fault_detector.$proc$rtl/fault_detector.v:21$7'.
+  created $dff cell `$procdff$85' with positive edge clock.
+Creating register for signal `\threshold_register.\voltage_max' using process `\threshold_register.$proc$rtl/threshold_register.v:19$6'.
+  created $dff cell `$procdff$86' with positive edge clock.
+Creating register for signal `\threshold_register.\voltage_min' using process `\threshold_register.$proc$rtl/threshold_register.v:19$6'.
+  created $dff cell `$procdff$87' with positive edge clock.
+Creating register for signal `\threshold_register.\current_max' using process `\threshold_register.$proc$rtl/threshold_register.v:19$6'.
+  created $dff cell `$procdff$88' with positive edge clock.
+Creating register for signal `\threshold_register.\power_max' using process `\threshold_register.$proc$rtl/threshold_register.v:19$6'.
+  created $dff cell `$procdff$89' with positive edge clock.
+Creating register for signal `\energy_accumulator.\energy_out' using process `\energy_accumulator.$proc$rtl/energy_accumulator.v:13$4'.
+  created $dff cell `$procdff$90' with positive edge clock.
+Creating register for signal `\power_calculator.\power_out' using process `\power_calculator.$proc$rtl/power_calculator.v:15$2'.
+  created $dff cell `$procdff$91' with positive edge clock.
+Creating register for signal `\input_register.\voltage_reg' using process `\input_register.$proc$rtl/input_register.v:17$1'.
+  created $dff cell `$procdff$92' with positive edge clock.
+Creating register for signal `\input_register.\current_reg' using process `\input_register.$proc$rtl/input_register.v:17$1'.
+  created $dff cell `$procdff$93' with positive edge clock.
+
+10.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+10.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 1 empty switch in `\protection_fsm.$proc$rtl/protection_fsm.v:62$16'.
+Removing empty process `protection_fsm.$proc$rtl/protection_fsm.v:62$16'.
+Found and cleaned up 5 empty switches in `\protection_fsm.$proc$rtl/protection_fsm.v:29$15'.
+Removing empty process `protection_fsm.$proc$rtl/protection_fsm.v:29$15'.
+Found and cleaned up 1 empty switch in `\fault_detector.$proc$rtl/fault_detector.v:21$7'.
+Removing empty process `fault_detector.$proc$rtl/fault_detector.v:21$7'.
+Found and cleaned up 1 empty switch in `\threshold_register.$proc$rtl/threshold_register.v:19$6'.
+Removing empty process `threshold_register.$proc$rtl/threshold_register.v:19$6'.
+Found and cleaned up 1 empty switch in `\energy_accumulator.$proc$rtl/energy_accumulator.v:13$4'.
+Removing empty process `energy_accumulator.$proc$rtl/energy_accumulator.v:13$4'.
+Found and cleaned up 1 empty switch in `\power_calculator.$proc$rtl/power_calculator.v:15$2'.
+Removing empty process `power_calculator.$proc$rtl/power_calculator.v:15$2'.
+Found and cleaned up 1 empty switch in `\input_register.$proc$rtl/input_register.v:17$1'.
+Removing empty process `input_register.$proc$rtl/input_register.v:17$1'.
+Cleaned up 11 empty switches.
+
+10.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+Optimizing module protection_fsm.
+<suppressed ~1 debug messages>
+Optimizing module fault_detector.
+Optimizing module threshold_register.
+Optimizing module energy_accumulator.
+Optimizing module power_calculator.
+Optimizing module input_register.
+
+10.3. Executing FLATTEN pass (flatten design).
+Deleting now unused module protection_fsm.
+Deleting now unused module fault_detector.
+Deleting now unused module threshold_register.
+Deleting now unused module energy_accumulator.
+Deleting now unused module power_calculator.
+Deleting now unused module input_register.
+<suppressed ~6 debug messages>
+
+10.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 0 unused cells and 39 unused wires.
+<suppressed ~1 debug messages>
+
+10.6. Executing CHECK pass (checking for obvious problems).
+Checking module energyguard_top...
+Found and reported 0 problems.
+
+10.7. Executing OPT pass (performing simple optimizations).
+
+10.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+<suppressed ~9 debug messages>
+Removed a total of 3 cells.
+
+10.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+10.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.7.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+10.7.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.7.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.7.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+10.7.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.7.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.7.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.7.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.7.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.7.16. Finished OPT passes. (There is nothing left to do.)
+
+10.8. Executing FSM pass (extract and optimize FSM).
+
+10.8.1. Executing FSM_DETECT pass (finding FSMs in design).
+Not marking energyguard_top.u_protection_fsm.state as FSM state register:
+    Register is connected to module port.
+    Users of register don't seem to benefit from recoding.
+
+10.8.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+10.8.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+10.8.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.8.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+10.8.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+10.8.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+10.8.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+10.9. Executing OPT pass (performing simple optimizations).
+
+10.9.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.9.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.9.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~16 debug messages>
+
+10.9.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.9.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.9.6. Executing OPT_DFF pass (perform DFF optimizations).
+Adding SRST signal on $flatten\u_threshold_register.$procdff$89 ($dff) from module energyguard_top (D = \power_max_cfg, Q = \u_threshold_register.power_max, rval = 24'000000000000000000000000).
+Adding SRST signal on $flatten\u_threshold_register.$procdff$88 ($dff) from module energyguard_top (D = \current_max_cfg, Q = \u_threshold_register.current_max, rval = 12'000000000000).
+Adding SRST signal on $flatten\u_threshold_register.$procdff$87 ($dff) from module energyguard_top (D = \voltage_min_cfg, Q = \u_threshold_register.voltage_min, rval = 12'000000000000).
+Adding SRST signal on $flatten\u_threshold_register.$procdff$86 ($dff) from module energyguard_top (D = \voltage_max_cfg, Q = \u_threshold_register.voltage_max, rval = 12'000000000000).
+Adding SRST signal on $flatten\u_protection_fsm.$procdff$81 ($dff) from module energyguard_top (D = $flatten\u_protection_fsm.$procmux$29_Y, Q = \u_protection_fsm.state, rval = 2'00).
+Adding EN signal on $auto$ff.cc:266:slice$104 ($sdff) from module energyguard_top (D = $flatten\u_protection_fsm.$procmux$29_Y, Q = \u_protection_fsm.state).
+Adding SRST signal on $flatten\u_power_calculator.$procdff$91 ($dff) from module energyguard_top (D = $flatten\u_power_calculator.$mul$rtl/power_calculator.v:20$3_Y, Q = \u_power_calculator.power_out, rval = 24'000000000000000000000000).
+Adding SRST signal on $flatten\u_input_register.$procdff$93 ($dff) from module energyguard_top (D = \current_in, Q = \u_input_register.current_reg, rval = 12'000000000000).
+Adding SRST signal on $flatten\u_input_register.$procdff$92 ($dff) from module energyguard_top (D = \voltage_in, Q = \u_input_register.voltage_reg, rval = 12'000000000000).
+Adding SRST signal on $flatten\u_fault_detector.$procdff$85 ($dff) from module energyguard_top (D = $flatten\u_fault_detector.$gt$rtl/fault_detector.v:31$11_Y, Q = \u_fault_detector.over_power, rval = 1'0).
+Adding SRST signal on $flatten\u_fault_detector.$procdff$84 ($dff) from module energyguard_top (D = $flatten\u_fault_detector.$gt$rtl/fault_detector.v:30$10_Y, Q = \u_fault_detector.over_current, rval = 1'0).
+Adding SRST signal on $flatten\u_fault_detector.$procdff$83 ($dff) from module energyguard_top (D = $flatten\u_fault_detector.$lt$rtl/fault_detector.v:29$9_Y, Q = \u_fault_detector.under_voltage, rval = 1'0).
+Adding SRST signal on $flatten\u_fault_detector.$procdff$82 ($dff) from module energyguard_top (D = $flatten\u_fault_detector.$gt$rtl/fault_detector.v:28$8_Y, Q = \u_fault_detector.over_voltage, rval = 1'0).
+Adding SRST signal on $flatten\u_energy_accumulator.$procdff$90 ($dff) from module energyguard_top (D = $flatten\u_energy_accumulator.$add$rtl/energy_accumulator.v:18$5_Y, Q = \u_energy_accumulator.energy_out, rval = 0).
+
+10.9.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 13 unused cells and 13 unused wires.
+<suppressed ~14 debug messages>
+
+10.9.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+<suppressed ~1 debug messages>
+
+10.9.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.9.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+10.9.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.9.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.9.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.9.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.9.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.9.16. Finished OPT passes. (There is nothing left to do.)
+
+10.10. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell energyguard_top.$auto$opt_dff.cc:195:make_patterns_logic$109 ($ne).
+Removed top 1 bits (of 2) from port B of cell energyguard_top.$flatten\u_protection_fsm.$procmux$21_CMP0 ($eq).
+
+10.11. Executing PEEPOPT pass (run peephole optimizers).
+
+10.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.13. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module energyguard_top:
+  creating $macc model for $flatten\u_energy_accumulator.$add$rtl/energy_accumulator.v:18$5 ($add).
+  creating $macc model for $flatten\u_power_calculator.$mul$rtl/power_calculator.v:20$3 ($mul).
+  creating $alu model for $macc $flatten\u_energy_accumulator.$add$rtl/energy_accumulator.v:18$5.
+  creating $macc cell for $flatten\u_power_calculator.$mul$rtl/power_calculator.v:20$3: $auto$alumacc.cc:365:replace_macc$120
+  creating $alu model for $flatten\u_fault_detector.$gt$rtl/fault_detector.v:28$8 ($gt): new $alu
+  creating $alu model for $flatten\u_fault_detector.$gt$rtl/fault_detector.v:30$10 ($gt): new $alu
+  creating $alu model for $flatten\u_fault_detector.$gt$rtl/fault_detector.v:31$11 ($gt): new $alu
+  creating $alu model for $flatten\u_fault_detector.$lt$rtl/fault_detector.v:29$9 ($lt): new $alu
+  creating $alu cell for $flatten\u_fault_detector.$lt$rtl/fault_detector.v:29$9: $auto$alumacc.cc:485:replace_alu$125
+  creating $alu cell for $flatten\u_fault_detector.$gt$rtl/fault_detector.v:31$11: $auto$alumacc.cc:485:replace_alu$130
+  creating $alu cell for $flatten\u_fault_detector.$gt$rtl/fault_detector.v:30$10: $auto$alumacc.cc:485:replace_alu$141
+  creating $alu cell for $flatten\u_fault_detector.$gt$rtl/fault_detector.v:28$8: $auto$alumacc.cc:485:replace_alu$152
+  creating $alu cell for $flatten\u_energy_accumulator.$add$rtl/energy_accumulator.v:18$5: $auto$alumacc.cc:485:replace_alu$163
+  created 5 $alu and 1 $macc cells.
+
+10.14. Executing SHARE pass (SAT-based resource sharing).
+
+10.15. Executing OPT pass (performing simple optimizations).
+
+10.15.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.15.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.15.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+10.15.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.15.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.15.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.15.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+10.15.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.15.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.15.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+10.15.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.15.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.15.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.15.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.15.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.15.16. Finished OPT passes. (There is nothing left to do.)
+
+10.16. Executing MEMORY pass.
+
+10.16.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+10.16.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+10.16.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+10.16.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+10.16.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+10.16.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.16.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+10.16.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+10.16.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.16.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+10.17. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.18. Executing OPT pass (performing simple optimizations).
+
+10.18.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+<suppressed ~5 debug messages>
+
+10.18.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.18.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.18.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+10.18.5. Finished fast OPT passes.
+
+10.19. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+10.20. Executing OPT pass (performing simple optimizations).
+
+10.20.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.20.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.20.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+10.20.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+    Consolidated identical input bits for $mux cell $flatten\u_protection_fsm.$procmux$32:
+      Old ports: A=2'00, B=2'11, Y=$flatten\u_protection_fsm.$procmux$32_Y
+      New ports: A=1'0, B=1'1, Y=$flatten\u_protection_fsm.$procmux$32_Y [0]
+      New connections: $flatten\u_protection_fsm.$procmux$32_Y [1] = $flatten\u_protection_fsm.$procmux$32_Y [0]
+    Consolidated identical input bits for $mux cell $flatten\u_protection_fsm.$procmux$36:
+      Old ports: A=2'00, B=2'10, Y=$flatten\u_protection_fsm.$procmux$36_Y
+      New ports: A=1'0, B=1'1, Y=$flatten\u_protection_fsm.$procmux$36_Y [1]
+      New connections: $flatten\u_protection_fsm.$procmux$36_Y [0] = 1'0
+  Optimizing cells in module \energyguard_top.
+Performed a total of 2 changes.
+
+10.20.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+10.20.6. Executing OPT_SHARE pass.
+
+10.20.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.20.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+10.20.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+<suppressed ~1 debug messages>
+
+10.20.10. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.20.11. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+10.20.12. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.20.13. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.20.14. Executing OPT_SHARE pass.
+
+10.20.15. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.20.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+10.20.17. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.20.18. Rerunning OPT passes. (Maybe there is more to do..)
+
+10.20.19. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \energyguard_top..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+10.20.20. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \energyguard_top.
+Performed a total of 0 changes.
+
+10.20.21. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+Removed a total of 0 cells.
+
+10.20.22. Executing OPT_SHARE pass.
+
+10.20.23. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.20.24. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+
+10.20.25. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+
+10.20.26. Finished OPT passes. (There is nothing left to do.)
+
+10.21. Executing TECHMAP pass (map to technology primitives).
+
+10.21.1. Executing Verilog-2005 frontend: /usr/local/bin/../share/yosys/techmap.v
+Parsing Verilog input from `/usr/local/bin/../share/yosys/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+10.21.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $sdff.
+Using extmapper simplemap for cells of type $or.
+Using extmapper maccmap for cells of type $macc.
+  add \u_input_register.voltage_reg * \u_input_register.current_reg (12x12 bits, unsigned)
+Using extmapper simplemap for cells of type $reduce_and.
+Using template $paramod$ee3d784672cdb1cb32d9a801a3af776716f16b74\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $reduce_bool.
+Using template $paramod$e82d3fc1811c5751348a3964470632b35a435fc7\_90_alu for cells of type $alu.
+Using template $paramod$610911f8769324f781128d641f7fe2120143c328\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $sdffe.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $ne.
+Using template $paramod$97565c3687be688407d1272a293bd9d0ae6852dc\_90_pmux for cells of type $pmux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000011000 for cells of type $fa.
+Using extmapper simplemap for cells of type $xor.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000001100 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000011000 for cells of type $lcu.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000100000 for cells of type $lcu.
+Using extmapper simplemap for cells of type $reduce_or.
+No more expansions possible.
+<suppressed ~1189 debug messages>
+
+10.22. Executing OPT pass (performing simple optimizations).
+
+10.22.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module energyguard_top.
+<suppressed ~997 debug messages>
+
+10.22.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\energyguard_top'.
+<suppressed ~108 debug messages>
+Removed a total of 36 cells.
+
+10.22.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+10.22.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \energyguard_top..
+Removed 211 unused cells and 415 unused wires.
+<suppressed ~212 debug messages>
+
+10.22.5. Finished fast OPT passes.
+
+10.23. Executing HIERARCHY pass (managing design hierarchy).
+
+10.23.1. Analyzing design hierarchy..
+Top module:  \energyguard_top
+
+10.23.2. Analyzing design hierarchy..
+Top module:  \energyguard_top
+Removed 0 unused modules.
+
+10.24. Printing statistics.
+
+=== energyguard_top ===
+
+   Number of wires:                434
+   Number of wire bits:           2930
+   Number of public wires:          75
+   Number of public wire bits:     665
+   Number of ports:                 20
+   Number of port bits:            175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1565
+     $_AND_                        702
+     $_MUX_                          2
+     $_NOT_                         73
+     $_OR_                         248
+     $_SDFFE_PP0P_                   2
+     $_SDFF_PP0_                   144
+     $_XOR_                        388
+     $scopeinfo                      6
+
+10.25. Executing CHECK pass (checking for obvious problems).
+Checking module energyguard_top...
+Found and reported 0 problems.
+
+11. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfbbn_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfbbn_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfrtn_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfbbp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfrbp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfrbp_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfrtp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfrtp_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfrtp_4' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfsbp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfsbp_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfstp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfstp_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfstp_4' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfxbp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfxbp_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfxtp_1' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfxtp_2' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sdfxtp_4' because it does not contain ff output 'IQ' - skipping.
+Warning: Inference failed on expression '(D&DE&!SCE)|(IQ&!DE&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sedfxbp_1' because it does not evaluate to an enable flop - skipping.
+Warning: Inference failed on expression '(D&DE&!SCE)|(IQ&!DE&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sedfxbp_2' because it does not evaluate to an enable flop - skipping.
+Warning: Inference failed on expression '(D&DE&!SCE)|(IQ&!DE&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sedfxtp_1' because it does not evaluate to an enable flop - skipping.
+Warning: Inference failed on expression '(D&DE&!SCE)|(IQ&!DE&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sedfxtp_2' because it does not evaluate to an enable flop - skipping.
+Warning: Inference failed on expression '(D&DE&!SCE)|(IQ&!DE&!SCE)|(SCD&SCE)' in next_state attribute of cell 'sky130_fd_sc_hd__sedfxtp_4' because it does not evaluate to an enable flop - skipping.
+  cell sky130_fd_sc_hd__dfxtp_1 (noninv, pins=3, area=20.02) is a direct match for cell type $_DFF_P_.
+  cell sky130_fd_sc_hd__dfrtn_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_NN0_.
+  cell sky130_fd_sc_hd__dfrtp_1 (noninv, pins=4, area=25.02) is a direct match for cell type $_DFF_PN0_.
+  cell sky130_fd_sc_hd__dfstp_2 (noninv, pins=4, area=26.28) is a direct match for cell type $_DFF_PN1_.
+  cell sky130_fd_sc_hd__edfxtp_1 (noninv, pins=4, area=30.03) is a direct match for cell type $_DFFE_PP_.
+  cell sky130_fd_sc_hd__dfbbn_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_NNN_.
+  cell sky130_fd_sc_hd__dfbbp_1 (noninv, pins=6, area=32.53) is a direct match for cell type $_DFFSR_PNN_.
+  final dff cell mappings:
+    unmapped dff cell: $_DFF_N_
+    \sky130_fd_sc_hd__dfxtp_1 _DFF_P_ (.CLK( C), .D( D), .Q( Q));
+    \sky130_fd_sc_hd__dfrtn_1 _DFF_NN0_ (.CLK_N( C), .D( D), .Q( Q), .RESET_B( R));
+    unmapped dff cell: $_DFF_NN1_
+    unmapped dff cell: $_DFF_NP0_
+    unmapped dff cell: $_DFF_NP1_
+    \sky130_fd_sc_hd__dfrtp_1 _DFF_PN0_ (.CLK( C), .D( D), .Q( Q), .RESET_B( R));
+    \sky130_fd_sc_hd__dfstp_2 _DFF_PN1_ (.CLK( C), .D( D), .Q( Q), .SET_B( R));
+    unmapped dff cell: $_DFF_PP0_
+    unmapped dff cell: $_DFF_PP1_
+    unmapped dff cell: $_DFFE_NN_
+    unmapped dff cell: $_DFFE_NP_
+    unmapped dff cell: $_DFFE_PN_
+    \sky130_fd_sc_hd__edfxtp_1 _DFFE_PP_ (.CLK( C), .D( D), .DE( E), .Q( Q));
+    \sky130_fd_sc_hd__dfbbn_1 _DFFSR_NNN_ (.CLK_N( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_NNP_
+    unmapped dff cell: $_DFFSR_NPN_
+    unmapped dff cell: $_DFFSR_NPP_
+    \sky130_fd_sc_hd__dfbbp_1 _DFFSR_PNN_ (.CLK( C), .D( D), .Q( Q), .Q_N(~Q), .RESET_B( R), .SET_B( S));
+    unmapped dff cell: $_DFFSR_PNP_
+    unmapped dff cell: $_DFFSR_PPN_
+    unmapped dff cell: $_DFFSR_PPP_
+
+11.1. Executing DFFLEGALIZE pass (convert FFs to types supported by the target).
+Mapping DFF cells in module `\energyguard_top':
+  mapped 146 $_DFF_P_ cells to \sky130_fd_sc_hd__dfxtp_1 cells.
+
+12. Executing ABC pass (technology mapping using ABC).
+
+12.1. Extracting gate netlist of module `\energyguard_top' to `<abc-temp-dir>/input.blif'..
+Extracted 1561 gates and 1794 wires to a netlist network with 231 inputs and 149 outputs.
+
+12.1.1. Executing ABC.
+Running ABC command: "<yosys-exe-dir>/yosys-abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.07 sec
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__decap_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__diode_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__dlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtn_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__dlxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__ebufn_8".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__edfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_0".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvn_8".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_1".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_2".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_4".
+ABC: Scl_LibertyReadGenlib() skipped three-state cell "sky130_fd_sc_hd__einvp_8".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_bleeder_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_12" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_3" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_6" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__lpflow_decapkapwr_8" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__lpflow_inputisolatch_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbn_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfbbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtn_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfrtp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfsbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfstp_4".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sdfxtp_4".
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_1" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_2" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped cell "sky130_fd_sc_hd__sdlclkp_4" without logic function.
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxbp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_1".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_2".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "sky130_fd_sc_hd__sedfxtp_4".
+ABC: Library "sky130_fd_sc_hd__tt_025C_1v80" from "/home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib" has 334 cells (94 skipped: 63 seq; 13 tri-state; 18 no func; 0 dont_use).  Time =     0.10 sec
+ABC: Memory =   19.85 MB. Time =     0.10 sec
+ABC: Warning: Detected 9 multi-output gates (for example, "sky130_fd_sc_hd__fa_1").
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &fraig -x 
+ABC: + &put 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+12.1.2. Re-integrating ABC results.
+ABC RESULTS:   sky130_fd_sc_hd__o221ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o221a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o31a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__xnor3_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__a2bb2oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__xor3_1 cells:       18
+ABC RESULTS:   sky130_fd_sc_hd__a21boi_0 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__o22a_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__or3_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a21o_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand4_1 cells:        7
+ABC RESULTS:   sky130_fd_sc_hd__a31o_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4b_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2111ai_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__nor4bb_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__a221oi_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o2bb2ai_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__nand3_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__a211oi_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__a222oi_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__a22oi_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__o22ai_1 cells:       11
+ABC RESULTS:   sky130_fd_sc_hd__a211o_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nand2b_1 cells:       17
+ABC RESULTS:   sky130_fd_sc_hd__a22o_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__o211ai_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a41o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__maj3_1 cells:       99
+ABC RESULTS:   sky130_fd_sc_hd__a221o_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__clkinv_1 cells:       57
+ABC RESULTS:   sky130_fd_sc_hd__a311oi_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__nor3b_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_inputiso1p_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__o311ai_0 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__a31oi_1 cells:        3
+ABC RESULTS:   sky130_fd_sc_hd__nor2b_1 cells:        4
+ABC RESULTS:   sky130_fd_sc_hd__o21ba_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__o21a_1 cells:       10
+ABC RESULTS:   sky130_fd_sc_hd__xnor2_1 cells:      107
+ABC RESULTS:   sky130_fd_sc_hd__o21ai_0 cells:       33
+ABC RESULTS:   sky130_fd_sc_hd__and4_1 cells:        2
+ABC RESULTS:   sky130_fd_sc_hd__and3_1 cells:        5
+ABC RESULTS:   sky130_fd_sc_hd__nand2_1 cells:      165
+ABC RESULTS:   sky130_fd_sc_hd__o21bai_1 cells:       21
+ABC RESULTS:   sky130_fd_sc_hd__a21oi_1 cells:       65
+ABC RESULTS:   sky130_fd_sc_hd__xor2_1 cells:       74
+ABC RESULTS:   sky130_fd_sc_hd__or4_1 cells:        1
+ABC RESULTS:   sky130_fd_sc_hd__and2_0 cells:       42
+ABC RESULTS:   sky130_fd_sc_hd__nor2_1 cells:       78
+ABC RESULTS:   sky130_fd_sc_hd__nor3_1 cells:       28
+ABC RESULTS:   sky130_fd_sc_hd__lpflow_isobufsrc_1 cells:      116
+ABC RESULTS:        internal signals:     1414
+ABC RESULTS:           input signals:      231
+ABC RESULTS:          output signals:      149
+Removing temp directory.
+Removed 0 unused cells and 742 unused wires.
+
+13. Executing CHECK pass (checking for obvious problems).
+Checking module energyguard_top...
+Found and reported 0 problems.
+
+14. Printing statistics.
+
+=== energyguard_top ===
+
+   Number of wires:               1134
+   Number of wire bits:           1724
+   Number of public wires:          74
+   Number of public wire bits:     664
+   Number of ports:                 20
+   Number of port bits:            175
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               1215
+     $scopeinfo                      6
+     sky130_fd_sc_hd__a211o_1        3
+     sky130_fd_sc_hd__a211oi_1       5
+     sky130_fd_sc_hd__a21boi_0       2
+     sky130_fd_sc_hd__a21o_1         5
+     sky130_fd_sc_hd__a21oi_1       65
+     sky130_fd_sc_hd__a221o_1        1
+     sky130_fd_sc_hd__a221oi_1       1
+     sky130_fd_sc_hd__a222oi_1       2
+     sky130_fd_sc_hd__a22o_1         3
+     sky130_fd_sc_hd__a22oi_1       11
+     sky130_fd_sc_hd__a2bb2oi_1      2
+     sky130_fd_sc_hd__a311oi_1       4
+     sky130_fd_sc_hd__a31o_1         2
+     sky130_fd_sc_hd__a31oi_1        3
+     sky130_fd_sc_hd__a41o_1         1
+     sky130_fd_sc_hd__and2_0        42
+     sky130_fd_sc_hd__and3_1         5
+     sky130_fd_sc_hd__and4_1         2
+     sky130_fd_sc_hd__clkinv_1      57
+     sky130_fd_sc_hd__dfxtp_1      146
+     sky130_fd_sc_hd__lpflow_inputiso1p_1      5
+     sky130_fd_sc_hd__lpflow_isobufsrc_1    116
+     sky130_fd_sc_hd__maj3_1        99
+     sky130_fd_sc_hd__nand2_1      165
+     sky130_fd_sc_hd__nand2b_1      17
+     sky130_fd_sc_hd__nand3_1       11
+     sky130_fd_sc_hd__nand3b_1       1
+     sky130_fd_sc_hd__nand4_1        7
+     sky130_fd_sc_hd__nor2_1        78
+     sky130_fd_sc_hd__nor2b_1        4
+     sky130_fd_sc_hd__nor3_1        28
+     sky130_fd_sc_hd__nor3b_1        5
+     sky130_fd_sc_hd__nor4b_1        1
+     sky130_fd_sc_hd__nor4bb_1       1
+     sky130_fd_sc_hd__o2111ai_1      1
+     sky130_fd_sc_hd__o211ai_1       3
+     sky130_fd_sc_hd__o21a_1        10
+     sky130_fd_sc_hd__o21ai_0       33
+     sky130_fd_sc_hd__o21ba_1        1
+     sky130_fd_sc_hd__o21bai_1      21
+     sky130_fd_sc_hd__o221a_1        1
+     sky130_fd_sc_hd__o221ai_1       1
+     sky130_fd_sc_hd__o22a_1         1
+     sky130_fd_sc_hd__o22ai_1       11
+     sky130_fd_sc_hd__o2bb2ai_1      2
+     sky130_fd_sc_hd__o311ai_0       3
+     sky130_fd_sc_hd__o31a_1         1
+     sky130_fd_sc_hd__or3_1          2
+     sky130_fd_sc_hd__or4_1          1
+     sky130_fd_sc_hd__xnor2_1      107
+     sky130_fd_sc_hd__xnor3_1       18
+     sky130_fd_sc_hd__xor2_1        74
+     sky130_fd_sc_hd__xor3_1        18
+
+   Area for cell type $scopeinfo is unknown!
+
+   Chip area for module '\energyguard_top': 10258.588800
+     of which used for sequential elements: 2922.803200 (28.49%)
+
+15. Executing Verilog backend.
+
+15.1. Executing BMUXMAP pass.
+
+15.2. Executing DEMUXMAP pass.
+Dumping module `\energyguard_top'.
+
+Warnings: 24 unique messages, 24 total
+End of script. Logfile hash: 14dffa3abb, CPU: user 0.63s system 0.03s, MEM: 49.12 MB peak
+Yosys 0.47+121 (git sha1 98b4affc4, g++ 13.2.0-23ubuntu4 -fPIC -O3)
+Time spent: 34% 1x abc (0 sec), 12% 2x stat (0 sec), ...

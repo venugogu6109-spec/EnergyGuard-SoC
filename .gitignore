@@ -1,15 +1,14 @@
 # Simulation executables
 *_sim
+*.out
 a.out
 
-# Waveforms
-*.vcd
-*.vcd.gz
-
-# Build outputs
-build/
-results/
-reports/
-*.log
+# Editor temporary files
+*~
+*.swp
 *.tmp
-*.o
+*.save
+
+# Generated temporary directories
+abc-*
+obj_dir/
