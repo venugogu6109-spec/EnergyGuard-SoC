@@ -3,7 +3,7 @@
 *.out
 a.out
 
-# Editor temporary files
+# Temporary editor files
 *~
 *.swp
 *.tmp
