@@ -1,0 +1,15 @@
+# Simulation executables
+*_sim
+a.out
+
+# Waveforms
+*.vcd
+*.vcd.gz
+
+# Build outputs
+build/
+results/
+reports/
+*.log
+*.tmp
+*.o
