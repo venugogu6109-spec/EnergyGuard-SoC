@@ -1,0 +1,68 @@
+========================================
+EnergyGuard Project Evidence
+Step: project_status
+Date: Sat Oct 10 11:04:42 AM IST 2026
+Directory: /home/vsduser/Desktop/EnergyGuard
+========================================
+
+===== GIT STATUS =====
+ M .gitignore
+ M README.md
+D  energyguard_top.vcd
+ M reports/sky130_mapping.log
+ M reports/sta_tt_025C_1v80.log
+ M tb/energyguard_top_tb.v
+?? capture.sh
+?? evidence/
+?? experiments/
+?? "imulation waveformsn*.vcdnn\""
+?? reports/sta_ff_n40C_1v95.log
+?? reports/sta_ss_100C_1v40.log
+?? sta/run_sta_ff_n40C_1v95.tcl
+?? sta/run_sta_ss_100C_1v40.tcl
+
+===== AVAILABLE TOOLS =====
+iverilog: /usr/bin/iverilog
+vvp: /usr/bin/vvp
+yosys: /usr/local/bin/yosys
+sta: not found on host
+openroad: not found on host
+
+===== PROJECT FILES =====
+constraints/energyguard.sdc
+reports/sky130_mapping.log
+reports/sta_ff_n40C_1v95.log
+reports/sta_ss_100C_1v40.log
+reports/sta_tt_025C_1v80.log
+reports/synthesis.log
+rtl/energy_accumulator.v
+rtl/energyguard_top.v
+rtl/fault_detector.v
+rtl/input_register.v
+rtl/power_calculator.v
+rtl/protection_fsm.v
+rtl/threshold_register.v
+sta/run_sta_ff_n40C_1v95.tcl
+sta/run_sta_ss_100C_1v40.tcl
+sta/run_sta.tcl
+synthesis/energyguard_generic.v
+synthesis/energyguard_sky130.v
+synthesis/run_sky130_mapping_old.ys
+synthesis/run_sky130_mapping.ys
+synthesis/run_synthesis.ys
+tb/energy_accumulator_sim
+tb/energy_accumulator_tb.v
+tb/energy_accumulator.vcd
+tb/energyguard_top_tb.v
+tb/energyguard_top_tb.v.save
+tb/fault_detector_tb.v
+tb/input_register_sim
+tb/input_register_tb.v
+tb/input_register.vcd
+tb/power_calculator_sim
+tb/power_calculator_tb.v
+tb/power_calculator.vcd
+tb/protection_fsm_tb.v
+tb/threshold_register_sim
+tb/threshold_register_tb.v
+tb/threshold_register.vcd

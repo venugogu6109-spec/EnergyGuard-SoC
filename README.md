@@ -36,3 +36,22 @@ Specification -> RTL -> Testbench -> Simulation -> Synthesis
 
 This project is under development. Final results will be added
 after implementation and verification.
+## System Architecture
+
+Block diagram: documentation image pending.
+
+## Simulation Results
+
+Simulation waveform: capture pending.
+
+## SKY130 Synthesis
+
+SKY130 synthesis: completed; see the synthesis reports in `reports/`.
+
+## Static Timing Analysis
+
+Static timing analysis: initial multi-corner results are available in `reports/`.
+
+## Physical Design
+
+Physical design: placement, routing, DRC, LVS, and GDSII generation are pending.

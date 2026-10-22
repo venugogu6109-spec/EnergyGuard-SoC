@@ -87,7 +87,7 @@ module energyguard_top_tb;
         current_in = 0;
 
         voltage_max_cfg = 2500;
-        voltage_min_cfg = 1800;
+        voltage_min_cfg = 50;
         current_max_cfg = 1000;
         power_max_cfg = 200000;
 

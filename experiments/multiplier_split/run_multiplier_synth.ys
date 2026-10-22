@@ -1,0 +1,15 @@
+read_liberty -lib /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog experiments/multiplier_split/rtl/power_calculator.v
+
+hierarchy -check -top power_calculator
+synth -top power_calculator -noabc
+
+dfflibmap -liberty /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+clean
+check
+stat -liberty /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+write_verilog -noattr experiments/multiplier_split/power_calculator_split_sky130.v
