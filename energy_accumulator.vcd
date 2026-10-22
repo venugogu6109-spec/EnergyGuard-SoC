@@ -1,0 +1,73 @@
+$date
+	Fri Oct 23 02:48:24 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module energy_accumulator_tb $end
+$var wire 32 ! energy_out [31:0] $end
+$var reg 1 " clk $end
+$var reg 24 # power_in [23:0] $end
+$var reg 1 $ rst $end
+$scope module uut $end
+$var wire 1 " clk $end
+$var wire 24 % power_in [23:0] $end
+$var wire 1 $ rst $end
+$var reg 32 & energy_out [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx &
+b0 %
+1$
+b0 #
+0"
+bx !
+$end
+#5000
+b0 !
+b0 &
+1"
+#10000
+0"
+b1111101000 #
+b1111101000 %
+0$
+#15000
+b1111101000 !
+b1111101000 &
+1"
+#20000
+0"
+b11111010000 #
+b11111010000 %
+#25000
+b101110111000 !
+b101110111000 &
+1"
+#30000
+0"
+b111110100 #
+b111110100 %
+#35000
+b110110101100 !
+b110110101100 &
+1"
+#40000
+0"
+b10111011100 #
+b10111011100 %
+#45000
+b1001110001000 !
+b1001110001000 &
+1"
+#50000
+0"
