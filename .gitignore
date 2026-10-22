@@ -1,14 +1,14 @@
-# Simulation executables
+# Compiled simulation executables
 *_sim
 *.out
 a.out
 
-# Temporary editor files
-*~
-*.swp
-*.tmp
-*.save
-
 # Generated temporary directories
 abc-*
 obj_dir/
+
+# Generated waveforms: add important VCD files explicitly
+# when they are needed as project evidence.
+
+# Generated experiment output
+experiments/multiplier_split/energyguard_split_tb.out
