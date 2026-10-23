@@ -1,0 +1,4 @@
+VCD info: dumpfile energy_accumulator.vcd opened for output.
+Energy accumulator verification completed.
+Final Energy =       5000
+tb/energy_accumulator_tb.v:57: $finish called at 50000 (1ps)

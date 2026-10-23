@@ -1,0 +1,4 @@
+VCD info: dumpfile power_calculator.vcd opened for output.
+Power calculator verification completed.
+Final Power =     4500
+tb/power_calculator_tb.v:59: $finish called at 40000 (1ps)

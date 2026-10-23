@@ -1,0 +1,11 @@
+VCD info: dumpfile protection_fsm.vcd opened for output.
+PASS: state=00 warning=0 fault=0 trip=0
+PASS: state=01 warning=1 fault=0 trip=0
+PASS: state=10 warning=0 fault=1 trip=0
+PASS: state=11 warning=0 fault=0 trip=1
+PASS: state=11 warning=0 fault=0 trip=1
+PASS: state=00 warning=0 fault=0 trip=0
+PASS: state=01 warning=1 fault=0 trip=0
+PASS: state=00 warning=0 fault=0 trip=0
+All protection FSM tests passed.
+tb/protection_fsm_tb.v:89: $finish called at 76000 (1ps)

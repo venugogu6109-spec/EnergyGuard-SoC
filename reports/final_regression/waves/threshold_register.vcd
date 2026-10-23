@@ -1,0 +1,91 @@
+$date
+	Fri Oct 23 13:25:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module threshold_register_tb $end
+$var wire 12 ! voltage_min [11:0] $end
+$var wire 12 " voltage_max [11:0] $end
+$var wire 24 # power_max [23:0] $end
+$var wire 12 $ current_max [11:0] $end
+$var reg 1 % clk $end
+$var reg 12 & current_max_in [11:0] $end
+$var reg 24 ' power_max_in [23:0] $end
+$var reg 1 ( rst $end
+$var reg 12 ) voltage_max_in [11:0] $end
+$var reg 12 * voltage_min_in [11:0] $end
+$scope module uut $end
+$var wire 1 % clk $end
+$var wire 12 + current_max_in [11:0] $end
+$var wire 24 , power_max_in [23:0] $end
+$var wire 1 ( rst $end
+$var wire 12 - voltage_max_in [11:0] $end
+$var wire 12 . voltage_min_in [11:0] $end
+$var reg 12 / current_max [11:0] $end
+$var reg 24 0 power_max [23:0] $end
+$var reg 12 1 voltage_max [11:0] $end
+$var reg 12 2 voltage_min [11:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+bx 2
+bx 1
+bx 0
+bx /
+b0 .
+b0 -
+b0 ,
+b0 +
+b0 *
+b0 )
+1(
+b0 '
+b0 &
+0%
+bx $
+bx #
+bx "
+bx !
+$end
+#5000
+b0 #
+b0 0
+b0 $
+b0 /
+b0 !
+b0 2
+b0 "
+b0 1
+1%
+#10000
+0%
+b110000110101000000 '
+b110000110101000000 ,
+b1111101000 &
+b1111101000 +
+b11100001000 *
+b11100001000 .
+b100111000100 )
+b100111000100 -
+0(
+#15000
+b110000110101000000 #
+b110000110101000000 0
+b1111101000 $
+b1111101000 /
+b11100001000 !
+b11100001000 2
+b100111000100 "
+b100111000100 1
+1%
+#20000
+0%

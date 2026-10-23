@@ -1,0 +1,10 @@
+VCD info: dumpfile fault_detector.vcd opened for output.
+PASS: OV=0 UV=0 OC=0 OP=0
+PASS: OV=0 UV=0 OC=0 OP=0
+PASS: OV=1 UV=0 OC=0 OP=0
+PASS: OV=0 UV=1 OC=0 OP=0
+PASS: OV=0 UV=0 OC=1 OP=0
+PASS: OV=0 UV=0 OC=0 OP=1
+PASS: OV=1 UV=0 OC=1 OP=1
+All fault detector tests passed.
+tb/fault_detector_tb.v:117: $finish called at 66000 (1ps)

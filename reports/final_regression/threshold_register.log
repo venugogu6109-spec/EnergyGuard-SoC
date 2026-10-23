@@ -1,0 +1,7 @@
+VCD info: dumpfile threshold_register.vcd opened for output.
+Threshold register verification completed.
+Voltage MAX = 2500
+Voltage MIN = 1800
+Current MAX = 1000
+Power MAX   =   200000
+tb/threshold_register_tb.v:68: $finish called at 20000 (1ps)

@@ -1,0 +1,5 @@
+VCD info: dumpfile input_register.vcd opened for output.
+Input register verification completed.
+Final Voltage Register = 2200
+Final Current Register =  400
+tb/input_register_tb.v:69: $finish called at 40000 (1ps)

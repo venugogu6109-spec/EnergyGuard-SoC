@@ -1,23 +1,18 @@
-read_liberty /pdk/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
-read_verilog /work/synthesis/energyguard_sky130.v
+
+read_liberty /home/vsduser/Desktop/skywater-pdk-libs-sky130_fd_sc_hd/timing/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+read_verilog /home/vsduser/Desktop/EnergyGuard/synthesis/energyguard_sky130.v
+
 link_design energyguard_top
-read_sdc /work/constraints/energyguard.sdc
 
-puts "===== ENERGYGUARD TIMING ANALYSIS ====="
+read_sdc /home/vsduser/Desktop/EnergyGuard/constraints/energyguard.sdc
 
-puts "===== MAXIMUM DELAY / SETUP PATHS ====="
-report_checks -path_delay max -format full_clock_expanded -group_path_count 10
+check_setup
 
-puts "===== MINIMUM DELAY / HOLD PATHS ====="
-report_checks -path_delay min -format full_clock_expanded -group_path_count 10
+report_checks -path_delay max -format full_clock_expanded -digits 3
+report_checks -path_delay min -format full_clock_expanded -digits 3
 
-puts "===== WORST SETUP SLACK ====="
 report_worst_slack -max
-
-puts "===== WORST HOLD SLACK ====="
 report_worst_slack -min
-
-puts "===== TIMING CHECK VIOLATIONS ====="
-report_check_types -violators
 
 exit

@@ -1,0 +1,154 @@
+$date
+	Fri Oct 23 13:25:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module fault_detector_tb $end
+$var wire 1 ! under_voltage $end
+$var wire 1 " over_voltage $end
+$var wire 1 # over_power $end
+$var wire 1 $ over_current $end
+$var reg 1 % clk $end
+$var reg 12 & current_in [11:0] $end
+$var reg 12 ' current_max [11:0] $end
+$var reg 24 ( power_in [23:0] $end
+$var reg 24 ) power_max [23:0] $end
+$var reg 1 * reset $end
+$var reg 12 + voltage_in [11:0] $end
+$var reg 12 , voltage_max [11:0] $end
+$var reg 12 - voltage_min [11:0] $end
+$scope module dut $end
+$var wire 1 % clk $end
+$var wire 12 . current_in [11:0] $end
+$var wire 12 / current_max [11:0] $end
+$var wire 24 0 power_in [23:0] $end
+$var wire 24 1 power_max [23:0] $end
+$var wire 1 * reset $end
+$var wire 12 2 voltage_in [11:0] $end
+$var wire 12 3 voltage_max [11:0] $end
+$var wire 12 4 voltage_min [11:0] $end
+$var reg 1 $ over_current $end
+$var reg 1 # over_power $end
+$var reg 1 " over_voltage $end
+$var reg 1 ! under_voltage $end
+$upscope $end
+$scope task check_flags $end
+$var reg 1 5 exp_oc $end
+$var reg 1 6 exp_op $end
+$var reg 1 7 exp_ov $end
+$var reg 1 8 exp_uv $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+08
+07
+06
+05
+b11100001000 4
+b100111000100 3
+b0 2
+b110000110101000000 1
+b0 0
+b1111101000 /
+b0 .
+b11100001000 -
+b100111000100 ,
+b0 +
+1*
+b110000110101000000 )
+b0 (
+b1111101000 '
+b0 &
+0%
+x$
+x#
+x"
+x!
+$end
+#5000
+0#
+0$
+0!
+0"
+1%
+#6000
+b11000011010100000 (
+b11000011010100000 0
+b111110100 &
+b111110100 .
+b100010011000 +
+b100010011000 2
+0*
+#10000
+0%
+#15000
+1%
+#16000
+17
+b101000101000 +
+b101000101000 2
+#20000
+0%
+#25000
+1"
+1%
+#26000
+18
+07
+b11010100100 +
+b11010100100 2
+#30000
+0%
+#35000
+1!
+0"
+1%
+#36000
+15
+08
+b10001001100 &
+b10001001100 .
+b100010011000 +
+b100010011000 2
+#40000
+0%
+#45000
+1$
+0!
+1%
+#46000
+16
+05
+b111101000010010000 (
+b111101000010010000 0
+b111110100 &
+b111110100 .
+#50000
+0%
+#55000
+1#
+0$
+1%
+#56000
+15
+17
+b10001001100 &
+b10001001100 .
+b101000101000 +
+b101000101000 2
+#60000
+0%
+#65000
+1$
+1"
+1%
+#66000

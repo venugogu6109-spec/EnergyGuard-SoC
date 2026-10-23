@@ -1,0 +1,38 @@
+EnergyGuard-SoC — RTL-to-GDS Results
+Technology: SkyWater SKY130 HD
+Top module: energyguard_top
+Flow: OpenROAD-flow-scripts
+
+Physical design:
+- Synthesis: completed
+- Floorplanning: completed
+- Placement: completed
+- Clock-tree synthesis: completed
+- Detailed routing: completed
+- Final GDSII generation: completed
+
+Final outputs:
+- 6_final.gds
+- 6_final.odb
+- 6_final.def
+- 6_final.spef
+- 6_final.v
+- 6_final.sdc
+
+Final timing report (6_finish.rpt):
+- Setup violation count: 0
+- Hold violation count: 0
+- WNS max: 0.00 (as reported)
+- TNS max: 0.00 (as reported)
+- Worst slack max: 4.27 ns (as reported)
+- Design area: 13876 um^2
+- Utilization: 44%
+
+Routing:
+- Detailed routing completed.
+- Routing log reported zero final detailed-routing violations.
+- 5_route_drc.rpt is empty; it is not independent DRC signoff evidence.
+
+Note:
+These results document this completed implementation run.
+They do not establish foundry signoff or fabrication readiness.

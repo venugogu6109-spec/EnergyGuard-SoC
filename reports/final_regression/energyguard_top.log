@@ -1,0 +1,16 @@
+VCD info: dumpfile energyguard_top.vcd opened for output.
+PASS: Voltage sample = 100
+PASS: Current sample = 10
+PASS: Power output = 1000
+PASS: Energy accumulator = 4000
+PASS: NORMAL state = 0
+PASS: Overvoltage flag = 1
+PASS: WARNING state = 1
+PASS: Warning output = 1
+PASS: FAULT state = 2
+PASS: Fault active output = 1
+PASS: TRIP state = 3
+PASS: Trip output = 1
+PASS: Trip retained after fault clears = 1
+All integrated EnergyGuard tests passed.
+tb/energyguard_top_tb.v:147: $finish called at 200000 (1ps)
